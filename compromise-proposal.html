@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Do Not Track &mdash; Compromise Proposal</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script src="http://dev.w3.org/2009/dap/ReSpec.js/js/respec.js" class="remove"></script>
+    <script class="remove">
+        var respecConfig = {
+	extraCSS:["http://dev.w3.org/2009/dap/ReSpec.js/css/respec.css"],
+	editors:[
+	  { name: "Peter Eckersley", company: "Electronic Frontier Foundation"},
+	  { name: "Tom Lowenthal", company: "Mozilla"},
+	  { name: "Jonathan Mayer", company: "Stanford University"}
+	  ],
+	specStatus: "unofficial"
+	}
+	</script>
+    </head>
+<body>
+
+  <section id="abstract">
+    <p>Abstract, version, and status information are not relevant in
+    this partial draft.</p> 
+    </section>
+
+<section>
+<h1>User Agents</h1>
+<section>
+<h1>Explicit Consent Requirement</h1>
+<b>Note:</b> This section was recently added and has not been extensively discussed with stakeholders. Please consider it a preliminary position.
+<br/><br/>
+An ordinary user agent MUST NOT send a Tracking Preference signal without a user's explicit consent.
+<br/><br/>
+<b>Example:</b> The user agent's privacy preferences pane includes controls for configuring the Tracking Preference signal.
+<br/><br/>
+<b>Example:</b> On first run, the user agent prompts the user to configure the Tracking Preference signal.
+</section>
+</section>
+
+  <section>
+<h1>Parties, First Parties and Third Parties</h1>
+
+  <section>
+<h1>Parties</h1>
+
+  <section>
+<h2>Definitions</h2>
+A <dfn>functional entity</dfn> is any commercial, nonprofit, or governmental organization, a subsidiary or unit of such an organization, or a person.
+<br/><br/>
+Functional entities are <dfn>affiliated</dfn> when they are related by both common majority ownership and common control.
+<br/><br/>
+A <dfn>party</dfn> is a set of functional entities that are affiliated.
+  </section>
+
+  <section>
+<h2>Transparency</h2>
+<section>
+<h2>Requirement</h2>
+A <a>functional entity</a> must make its <a>affiliated</a> functional entities easily discoverable by a user.
+</section>
+<section>
+<h2>Non-Normative Discussion</h2>
+Affiliation may be made easily discoverable by a user in many ways, including but not limited to: prominent and common branding on pages, one click away within a privacy policy, or a machine-readable format in a well-known location.
+</section>
+</section>
+</section>
+
+  <section>
+<h1>Network Interaction</h1>
+
+  <section>
+<h2>Definition</h2>
+
+<p>A <dfn>network interaction</dfn> is an HTTP request and response, or any
+  other set of logically related network traffic.  </p>
+
+   </section>
+   <section>
+<h2>Non-Normative Discussion</h2>
+
+<p>Determination of a party's status is limited to a single
+  transaction because a party's status may be affected by time,
+  context, or any other factor that influences user expectations.</p> 
+  </section>
+</section>
+
+  <section>
+<h1>First Parties and Third Parties</h1>
+
+  <section>
+<h2>Definitions</h2>
+
+<p>A <dfn>first party</dfn> is any <a>party</a>, in a specific <a>network interaction</a>,
+  that can infer with high probability that the user knowingly and
+  intentionally communicated with it. Otherwise, a party is a third
+  party.</p> 
+
+<p>A <dfn>third party</dfn> is any <a>party</a>, in a specific <a>network interaction</a>,
+  that cannot infer with high probability that the user knowingly and
+  intentionally communicated with it.</p> 
+
+   </section>
+   <section>
+<h2>Non-Normative Discussion</h2>
+
+<section>
+<h2>Overview</h2>
+
+<p>We draw a distinction between those parties an ordinary user would
+  or would not expect to share information with, "first parties" and
+  "third parties" respectively.  The delineation exists for three
+  reasons.</p> 
+
+<p>First, when a user expects to share information with a party,
+  she can often exercise control over the information flow. 
+  Take, for example, Example Social, a popular
+  social network.  The user may decide she does not like Example
+  Social's privacy or security practices, so she does not visit
+  examplesocial.com.  But if Example Social provides a social sharing
+  widget embedded in another website, the user may be unaware she is
+  giving information to Example Social and unable to exercise control
+  over the information flow.</p> 
+
+<p>Second, we recognize that market pressures are an important factor
+  in encouraging good privacy and security practices.  If users do not
+  expect that they will share information with an organization, it is
+  unlikely to experience market pressure from users to protect the security
+  and privacy of their information.  In practice, moreover, third parties
+  may not experience sufficient market pressure from first parties
+  since increasingly third parties do not have a direct business relationship
+  with the first party websites they appear on.  We therefore
+  require a greater degree of user control over information sharing
+  with such organizations. </p> 
+
+<p>Last, third parties are often in a position to collect a sizeable
+  proportion of a user's browsing history – information that can be
+  uniquely sensitive and easily associated with a user's identity.  We
+  wish to provide user control over such information flows.</p> 
+
+<p>We recognize that, unlike with a bright-line rule, there can be
+  close calls in applying our standard for what constitutes a first
+  party or a third party.  But we believe that in practice, such close
+  calls will be rare.  The overwhelming majority of content on the web
+  can be classified as first party or third party, with few cases of ambiguity 
+  in practice.</p> 
+
+<p>We require a confidence at a "high probability" before a party can
+  consider itself a first party.  Where there is reasonable ambiguity
+  about whether a user has intentionally interacted with a party, it
+  must consider itself a third party.  Our rationale is that, in
+  the rare close cases, a website is in the best position to understand
+  its users' expectations.  We therefore impose the burden of
+  understanding user expectations on the website.  We also wish, in
+  close cases, to err on the side of conforming to user expectations
+  and protecting user privacy.  If the standard is insufficiently
+  protective, ordinary users have limited recourse; if the standard 
+  imposes excessive limits, websites retain the safety valve of explicitly
+  asking for user permission.</p> 
+  </section>
+  
+   <section>
+<h2>Common Examples and Use Cases</h2>
+<ol>
+<li>A user accesses an Example News article.  The page includes an
+  advertisement slot, which loads content from many companies other
+  than Example News.  Those companies are third parties.</li> 
+<li> A user accesses an Example News article. The page includes an
+  analytics script that is hosted by Example Analytics, an analytics
+  service.  Example Analytics is a third party.</li> 
+<li> A user accesses an Example News article.  It includes a social
+  sharing widget from Example Social, a popular social network.
+  Example Social is a third party.</li> 
+<li> A user visits Example Diary, which is hosted by the free blogging
+  service Example Blog Hosting but located at examplediary.com.  Example
+  Blog Hosting is a third party.</li>
+<li> A user launches Example Application, an app on a mobile device.
+  The app includes a library from Example Advertising Network that displays
+  ads. Example Advertising Network is a third party.</li>
+</ol>
+   </section>
+
+   <section>
+<h1>Multiple First Parties</h1>
+<p>There will almost always be only one party that the average user would
+expect to communicate with: the provider of the website the user has
+visited.  But, in rare cases, users may expect that a website is
+provided by more than one party.  For example, suppose Example Sports,
+a well known sports league, collaborates with Example
+Streaming, a well known streaming video website, to provide content at
+www.examplesportsonexamplestreaming.com.  The website is prominently advertised
+and branded as being provided by both Example Sports and Example Streaming.  An ordinary
+user who visits the website may recognize that it is operated by both Example Sports and
+Example Streaming.</p>
+   </section>
+   
+   <section>
+<h1>User Interaction with Third-Party Content</h1>
+<p>A party may start out as a third party but become a first party
+  later on, after a user interacts with it. If content from a third
+  party is embedded on a first party page, the third party may become
+  an additional first party if it can infer with high probability that
+  the average user knowingly and intentionally communicated with it.
+  If a user merely moused over, closed, or muted third-party content,
+  the party would not be able to draw such an inference. </p>
+
+   <section>
+<h2>Examples and Use Cases</h2>
+
+<p><b>Example:</b> Example Weather offers an unbranded weather widget
+  that is embedded into websites, including Example News.  The widget
+  contains small links to Example Weather's website and privacy
+  policy.  A user visits Example News and scrolls through the weekly
+  forecast in the Example Weather widget.</p> 
+
+<p><b>Discussion:</b> Example Weather is a third party.  The user has
+  interacted with Example Weather's widget, but an ordinary user would
+  not expect that scrolling through the widget involves communicating
+  with Example News.</p> 
+
+<p><b>Example:</b> Example Social, a popular social network, hosts a
+  social sharing button that other websites can embed.  The button is
+  colored and styled in the same fashion as Example Social's website,
+  contains descriptive text that is specific to Example Social,
+  includes Example Social's logo, and very frequently appears on
+  Example Social's website.  Example News embeds the Example Social
+  button, and a user clicks it.</p> 
+
+<p><b>Discussion:</b> Example Social is a first party once the user clicks its
+  embedded social sharing button.  The average user would understand that by
+  clicking the button she is communicating with Example Social.</p>
+  </section>
+ </section>
+ </section>
+ </section>
+ </section>
+
+  <section>
+<h1>Information Practices</h1>
+
+<section>
+<h1>Reception, Retention, Use, and Sharing</h1>
+
+A <a>party</a> <dfn title="receive">receives</dfn> data if the data comes within its control.
+<br/><br/>
+A <a>party</a> <dfn title="retain">retains</dfn> data if the data remains within the party's control.
+<br/><br/>
+A <a>party</a> <dfn title="use">uses</dfn> data if the party processes the data for any purpose, including for storage.
+<br/><br/>
+A <a>party</a> <dfn title="share">shares</dfn> data if the party enables another party to receive the data.
+
+</section>
+
+  <section>
+<h1>First Party</h1>
+A <a>first party</a> MUST NOT share information with a <a>third party</a> that the <a>third party</a> is prohibited from receiving itself.
+
+<div class="practice">
+<p>
+<span class="practicelab">Additional Voluntary Measures</span>
+</p>
+<p class="practicedesc">
+A first party may voluntarily take steps to protect user privacy when responding to a Do Not Track request.
+</p>
+</div>
+</section>
+ 
+  <section>
+<h1>Third Party</h1>
+
+  <section>
+<h1>General Rule</h1>
+A <a>third party</a> MUST NOT <a>receive</a>, <a>retain</a>, <a>use</a>, or <a>share</a> any information related to communication with a user or user agent. There are exceptions to this general rule as defined in the following sections. In case of ambiguity, an exception MUST be construed narrowly. Each exception operates independently; exceptions cannot be combined except where explicitly noted otherwise.
+ </section>
+
+  <section>
+<h1>Exceptions</h1>
+
+  <section>
+<h1>Protocol Information</h1>
+<section>
+<h1>Definition</h1>
+<dfn>Protocol information</dfn> includes:
+<ul>
+<li>any information that a user agent necessarily shares with a web server when it communicates with the web server (e.g. IP address and User-Agent), and
+<li>the URL of the top-level page, communicated via a Referer header or other means, unless the URL contains information that is not <a>unlinkable</a> (e.g. a username or user ID).
+</ul>
+
+Protocol information does not include:
+<ul>
+<li> any information that a web server could cause to not be sent but still communicate with the user agent (e.g. a cookie or a Request-URI parameter generated by the user agent), except the URL of the top-level page, and
+<li> any data added by a network intermediary that the operator of a web server has actual knowledge of (e.g. a unique device identifier HTTP header).
+</ul>
+
+</section>
+<section>
+<h1>In General</h1>
+A <a>third party</a> MAY <a>receive</a> and <a>use</a> <a>protocol information</a> for any purpose, subject to a two-week retention period.
+</section>
+
+<section>
+<h1>Non-Normative Discussion: Contextual Personalization</h1>
+Under the general rule on protocol information a third party MAY temporarily use a top-level page URL for the purpose of contextually personalizing content.
+</section>
+
+  <section>
+<h1>Additional Limit on Geolocation</h1>
+Under the general rule a third party MAY temporarily use an IP address for geolocation. The geolocation MUST be coarse.
+</section>
+
+
+<section>
+<h1>Security and Fraud Prevention</h1>
+A <a>third party</a> MAY <a>receive</a> and <a>use</a> <a>protocol information</a> for the detection and prevention of security breaches and fraudulent activity, subject to a six-month retention period and the restrictions imposed in the subsequent sections on security and fraud prevention.
+</section>
+
+</section>
+ 
+  <section>
+<h1>Unlinkable Data</h1>
+  <section>
+<h1>Definitions</h1>
+A dataset is <dfn title="unlinkable data">unlinkable</dfn> when there is a high probability that it contains only information which could not be linked to a particular user, user agent, or device by a skilled analyst.
+<br/><br/>
+N-unlinkability is the special case of K-anonymity where all values are considered part of the pseudo-identifier.
+</section>
+<section>
+<h1>Validation</h1>
+<a>Third parties</a> that <a>receive</a>, <a>retain</a>, or <a>use</a> <a>unlinkable data</a> MUST either:
+<ol>
+<li> publicly publish information that is sufficiently detailed for a skilled analyst to evaluate the implementation, or
+<li> ensure that any datasets are at least 1024-unlinkable.
+</ol>
+  </section>
+  <section>
+<h1>Information That Is Unlinkable When Received</h1>
+A <a>third party</a> MAY receive non-<a>protocol information</a> if it is, independent of <a>protocol information</a>, <a>unlinkable data</a>. The data MAY be <a>retained</a> and <a>used</a> subject to the same limitations as <a>protocol information</a>.  Such data MUST be disassociated from protocol information when it is first used or within two weeks, whichever is sooner.
+<br/><br/>
+<b>Example:</b> Example Advertising sets a language preference cookie that takes on few values and is shared by many users.  Log entries containing this preference cookie as well as protocol information are collected on each of Example Advertising's webservers.  When Example Advertising processes its logs, it computes unlinkable datasets using the protocol logs and language cookies.  After that process, Example Advertising no longer stores log files that associate protocol log entries with the language cookies.
+</section>
+  <section>
+<h1>Information That Is Unlinkable After Aggregation</h1>
+During the period in which a <a>third party</a> may use <a>protocol information</a> for any purpose, it may aggregate <a>protocol information</a> and <a>unlinkable data</a> into an unlinkable dataset. Such a dataset may be retained indefinitely and used for any purpose.
+<br/><br/>
+<b>Example:</b> Example Advertising maintains a dataset of how many times per week Italy-based users load each of its ads on Example News.
+</section>
+  </section>
+  
+  <section>
+<h1>Outsourcing</h1>
+A <a>first party</a> MAY outsource website functionality to a <a>third party</a>, in which case the <a>third party</a> may act as the <a>first party</a> under this standard with the following additional restrictions.
+
+  <section>
+<h1>Technical Precautions</h1>
+
+  <section>
+<h1>Operative Text</h1>
+Throughout all data <a>reception</a>, <a>retention</a>, and <a>use</a>, outsourced service providers MUST use all feasible technical precautions to both mitigate the linkability of and prevent the linking of data from different first parties.<br/>
+<br/>
+Structural separation ("siloing") of data per first party, including both
+<ol>
+<li>separate data structures and</li>
+<li>avoidance of shared unique identifiers</li>
+</ol>
+are necessary, but not necessarily sufficient, technical precautions.
+  </section>
+  
+  <section>
+<h1>Non-Normative Discussion</h1>
+
+  <section>
+<h1>Siloing in the Browser</h1>
+
+Outsourcing services should use browser access control features so that stored data specific to one first party is never accessed or received when the user visits another first party.
+
+  <section>
+<h1>Same-Origin Policy</h1>
+The same-origin policy silos stored data by domain name.  An outsourcing service can use a different domain name for each first party.
+<br/><br/>
+<b>Example:</b> Example Analytics provides an outsourced analytics service to Example News and Example Sports, two unrelated websites.  Example Analytics stores its cookies for Example News at examplenews.exampleanalytics.com, and it stores its cookies for Example Sports at examplesports.exampleanalytics.com.
+</section>
+
+<section>
+<h1>Cookie Path Attribute</h1>
+The HTTP cookie path can be used to silo data to a first party.
+<br/><br/>
+<b>Example:</b> Example Analytics stores its cookies for Example News with "Path=/examplenews", and it stores its cookies for Example Sports with "Path=/examplesports".
+</section>
+
+<section>
+<h1>Storage Key</h1>
+For key/value storage APIs, such as Web Storage and Indexed Database, an outsourcing service can use a different key or key prefix for each first party.
+<br/><br/>
+<b>Example:</b> Example Analytics stores data for Example News at window.localStorage["examplenews"] and data for Example Sports at window.localStorage["examplesports"].
+</section>
+</section>
+
+  <section>
+<h1>Siloing in the Backend</h1>
+
+  <section>
+<h1>Encryption Keys</h1>
+An outsourcing service should encrypt each <a>first party</a>'s data with a different set of keys.
+  </section>
+  
+    <section>
+<h1>Access Controls</h1>
+An outsourcing service should deploy access controls so that only authorized personnel are able to access siloed data, and only for authorized purposes.
+  </section>
+
+    <section>
+<h1>Access Monitoring</h1>
+An outsourcing service should deploy access monitoring mechanisms to detect improper use of siloed data.
+  </section>
+
+  </section>
+
+  <section>
+<h1>Retention in the Backend</h1>
+An outsourcing service should <a>retain</a> information only so long as necessary to provide necessary functionality to a first party.  If a service creates periodic reports, for example, it should delete the data used for a report once it is generated.  An outsourcing service should be particularly sensitive to retaining protocol logs, since they may allow correlating user activity across multiple first parties.
+  </section>
+  </section>
+  
+  </section>
+  
+  <section>
+<h1>Internal Practices</h1>
+<section>
+<h1>Operative Text</h1>
+  Throughout all data reception, retention, and use, outsourced service providers MUST use sufficient internal practices to prevent the linking of data from different first parties.
+  </section>
+<section>
+<h1>Non-Normative Discussion</h1>
+<section>
+<h1>Policy</h1>
+An outsourcing service should establish a clear internal policy that gives guidance on how to <a>receive</a>, <a>retain</a>, and <a>use</a> outsourced data in compliance with this standard.
+</section>
+<section>
+<h1>Training</h1>
+Personnel that interact with outsourced data should be familiarized with internal policy on compliance with this standard.
+</section>
+<section>
+<h1>Supervision and Reporting</h1>
+An outsourcing service should establish a supervision and reporting structure for detecting improper access.
+</section>
+<section>
+<h1>Auditing</h1>
+External auditors should periodically examine an outsourcing service to assess whether it is in compliance with this standard and has adopted best practices.  Auditor reports should be made available to the public.
+</section>
+</section>
+</section>
+
+<section>
+<h1>Use Direction</h1>
+An outsourced service
+<ol>
+<li>MUST <a>use</a> data <a>retained</a> on behalf of a <a>first party</a> ONLY on behalf of that <a>first party</a>, and</li>
+<li>MUST NOT <a>use</a> data <a>retained</a> on behalf of a <a>first party</a> for their own business purposes, or for any other reasons.</li>
+</ol>
+  </section>
+  <section>
+<h1>First-Party Requirements</h1>
+  <section>
+<h1>Representation</h1>
+A <a>first party</a>'s representation that it is in compliance with this standard includes a representation that its outsourcing service providers comply with this standard.
+  </section>
+  <section>
+<h1>Contract</h1>
+A <a>first party</a> MUST enter into a contract with an outsourcing service provider that requires that outsourcing service provider to comply with these requirements.
+  </section>
+  </section>
+  </section>
+
+  <section>
+<h1>User Permission</h1>
+A website my engage in practices otherwise prohibited by this standard if a user grants permission. Permission may be attained through the browser API defined in the companion Tracking Preference Expression document. A website may also rely on "out-of-band" consent attained through a different technology.  An "out-of-band" choice mechanism has the same effect under this standard as the browser exception API, provided that it satisfies the following bright-line requirements:
+<ol>
+<li><b>Actual presentation:</b> The choice mechanism MUST be actually presented to the user.  It MUST NOT be on a linked page, such as a terms of service or privacy policy.</li>
+<li><b>Clear terms:</b> The choice mechanism MUST use clear, non-confusing terminology.</li>
+<li><b>Independent choice:</b> The choice mechanism MUST be presented independent of other choices.  It MUST NOT be bundled with other user preferences.</li>
+<li><b>No default permission:</b> The choice mechanism MUST NOT have the user permission preference selected by default.</li>
+</ol>
+An "out-of-band" choice mechanism must additionally satisfy the following high-level standard:
+<br/><br/>
+An ordinary user would know that the choice overrides his or her privacy protections under this standard.
+  </section>
+
+  <section>
+<h1>Security</h1>
+  
+  <section>
+<h1>Operative Text</h1>
+A <a>third party</a> MAY <a>receive</a>, <a>retain</a>, and <a>use</a> data about a particular user or user agent for the purpose of ensuring its security, provided that there are reasonable grounds to believe the user or user agent was attempting to breach the party's security at the time the data was received.
+<br/><br/>
+<b>Note:</b> This draft does not address the extent to which technical and business precautions are required for security data.
+  </section>
+  
+  <section>
+<h1>Non-Normative Discussion</h1>
+This exception grants <a>third parties</a> (e.g. advertising networks) some latitude to mitigate security risks.  Websites that users store sensitive personal information on (e.g. financial services and webmail) are all first-party; they are able to <a>receive</a>, <a>retain</a>, and <a>use</a> information about all users for security purposes.
+  </section>
+  
+  </section>
+  
+  <section>
+<h1>Fraud Prevention</h1>
+
+  <section>
+<h1>Operative Text</h1>
+A <a>third party</a> MAY <a>receive</a>, <a>retain</a>, and <a>use</a> data about a particular user or user agent for the purpose of preventing fraud, provided that there are reasonable grounds to believe the user or user agent was attempting to commit fraud at the time the data was received.
+<br/><br/>
+<b>Note:</b> This draft does not address the extent to which technical and business precautions are required for fraud prevention data.
+
+  </section>
+  
+  <section>
+<h1>Non-Normative Discussion</h1>
+When a user meaningfully interacts with third-party content (e.g. clicking an ad), the <a>third party</a> can <a>receive</a>, <a>retain</a>, and <a>use</a> data for fraud prevention.  Third parties can also <a>use</a> <a>protocol information</a> for fraud prevention.  This exception provides an additional capability to, in certain circumstances, track impressions for fraud prevention.
+  </section>
+  
+  </section>
+
+<section>
+<h1>Unknowing Information Practices</h1>
+<b>Note:</b> This section was recently added and has not been extensively discussed with stakeholders. Please consider it a preliminary position.
+<br/><br/>
+A party MAY <a>receive</a>, <a>retain</a>, and <a>use</a> data as otherwise prohibited by this standard, so long as is unaware of such information practices and has made reasonable efforts to understand its information practices. If a party learns that it possesses information in violation of this standard, it MUST delete that information at the earliest practical opportunity.
+</section>
+
+ </section>
+
+ </section>
+ 
+
+ </section>
+
+</body>
