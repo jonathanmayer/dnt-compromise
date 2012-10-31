@@ -517,6 +517,13 @@ A <a>third party</a> MAY <a>receive</a>, <a>retain</a>, and <a>use</a> data abou
 When a user meaningfully interacts with third-party content (e.g. clicking an ad), the <a>third party</a> can <a>receive</a>, <a>retain</a>, and <a>use</a> data for fraud prevention.  Third parties can also <a>use</a> <a>protocol information</a> for fraud prevention.  This exception provides an additional capability to, in certain circumstances, track impressions for fraud prevention.
   </section>
   
+    <section>
+<h1>Examples</h1>
+<b>Allowed Example:</b> A third-party social widget provider detects that a particular IP address is associated with an abnormal number of shares in the past hour. The widget provider invalidates the prior shares as fraudulent, and on the next occasion when a visitor arrives from that IP address, it stores an identifier in HTML 5 Local Storage to facilitate its fraud prevention.
+<br/><br/>
+<b>Disallowed Example:</b> A third-party social widget provider installs a unique identifier cookie in all users' web browsers, on the off-chance that any user might engage in fraudulent activity.
+</section>
+  
   </section>
 
 <section>
